@@ -9,7 +9,7 @@ dependencies:
     - jupyter==1.0.0
     - pydot==1.4.2
     - graphviz==0.19.1
-    - git+https://github.com/hls4ml-finn-mlperftiny/hls4ml.git@fifo_depth_opt#egg=hls4ml[profiling]
+    - hls4ml==0.6.0
     - matplotlib==3.5.1
     - numpy==1.21.5
     - PyYAML==6.0
