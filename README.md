@@ -3,7 +3,8 @@ hls4ml Live Demo:
 Anomaly Detection in Machine Operating Sounds (ADMOS)
 
 steps:
-1. run get_data.sh to download ToyADMOS dataset and get processed_data
+1. run conda env create -f environment.yml and conda activate tiny
+2. run get_data.sh to download ToyADMOS dataset and get processed_data
 2. run train.py to train nn
 3. run test.py to test auc
 4. run deployment to sythesize and profile hls4ml nn
