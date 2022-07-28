@@ -1,4 +1,4 @@
-Live demo of hls4ml:
+hls4ml Live Demo:
 
 Anomaly Detection in Machine Operating Sounds (ADMOS)
 
