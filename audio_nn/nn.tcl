@@ -1,4 +1,4 @@
-set_property  ip_repo_paths  {../../ip ../../../../myproject_prj/solution1/impl} [current_project]
+set_property  ip_repo_paths  {../../ip ../../../../vivado/myproject_prj/solution1/impl} [current_project]
 update_ip_catalog
 
 # creating hier_0 with nn and dma
