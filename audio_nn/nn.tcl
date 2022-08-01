@@ -40,3 +40,6 @@ apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_s
 endgroup
 
 group_bd_cells hier_0 [get_bd_cells axi_dma_0] [get_bd_cells myproject_axi_0]
+
+assign_bd_address [get_bd_addr_segs {hier_0/axi_dma_0/S_AXI_LITE/Reg }]
+assign_bd_address [get_bd_addr_segs {processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM }]
