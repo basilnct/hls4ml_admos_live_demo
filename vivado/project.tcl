@@ -6,6 +6,7 @@ update_ip_catalog
 create_bd_design "design_1"
 
 source design.tcl
+source nn.tcl
 save_bd_design
 
 make_wrapper -files [get_files pynq_z2_audio/pynq_z2_audio.srcs/sources_1/bd/design_1/design_1.bd] -top
