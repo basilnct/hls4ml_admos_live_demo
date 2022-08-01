@@ -5,7 +5,7 @@ set_property  ip_repo_paths  ../../ip [current_project]
 update_ip_catalog
 create_bd_design "design_1"
 
-source design.tcl
+source audio.tcl
 source nn.tcl
 save_bd_design
 
