@@ -31,3 +31,4 @@ pynq_live_admos:
 
 current issues:
 implementation fail in deployment.py
+other part seems to work fine
