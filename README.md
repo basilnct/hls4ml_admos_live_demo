@@ -37,4 +37,4 @@ jules muhizi (julesmuhizi)
 current issues:
 implementation fail in deployment.py
 
-LUT utilization too high even though I changed nothing??
+LUT utilization too high, resuse factor not correct
