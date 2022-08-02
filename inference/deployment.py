@@ -19,23 +19,23 @@ TB_DATA_DIR = convert_config['tb_data_dir']
 X_TEST_DATA_DIR = convert_config['x_npy_dir']
 Y_TEST_DATA_DIR = convert_config['y_npy_dir']
 OUTPUT_DIR = convert_config['output_dir']
-HLS_CONFIG = convert_config['hls_config']
-CLOCK_PERIOD=convert_config['clock_period']
 BACKEND=convert_config['backend']
 
-hls_config = yaml.safe_load(open(HLS_CONFIG))
-
 # convert to hls4ml
-import hls4ml
 import plotting
-
+import hls4ml
 hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
 hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
 hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
+# for tuning and custom configs
+# HLS_CONFIG=convert_config['hls_config']
+# hls_config = yaml.safe_load(open(HLS_CONFIG))
+hls_config = hls4ml.utils.config_from_keras_model(model, granularity='name')
+
 print("-----------------------------------")
 plotting.print_dict(hls_config)
 print("-----------------------------------")
-hls_model = hls4ml.converters.convert_from_keras_model(model=model,
+hls_model = hls4ml.converters.convert_from_keras_model(model,
                                                        hls_config=hls_config,
                                                        output_dir=OUTPUT_DIR,
                                                        backend=BACKEND,
@@ -54,11 +54,10 @@ import matplotlib.pyplot as plt
 X_tb = np.load(TB_DATA_DIR, allow_pickle=True)
 X_profiling =  np.load(X_TEST_DATA_DIR, allow_pickle=True)
 
-PROFILE_DIR = OUTPUT_DIR+'/hls4ml_profiling_plots'
+PROFILE_DIR = OUTPUT_DIR +'/hls4ml_profiling_plots'
 os.makedirs(PROFILE_DIR)
 
 hls4ml_pred, hls4ml_trace = hls_model.trace(np.ascontiguousarray(X_profiling[0][0][0]))
-PROFILE_DIR = OUTPUT_DIR+'/hls4ml_profiling_plots'
 # run tracing on a portion of the test set for the Keras model (floating-point precision)
 keras_trace = hls4ml.model.profiling.get_ymodel_keras(model, X_profiling[0][0])
 
@@ -88,3 +87,6 @@ plot_roc(model, hls_model, X_TEST_DATA_DIR, Y_TEST_DATA_DIR, data_split_factor=1
 
 # synthesize
 hls_model.build(csim=False, export=True)
+
+# build to check build is successful before adding audio component
+hls4ml.templates.VivadoAcceleratorBackend.make_bitfile(hls_model)
