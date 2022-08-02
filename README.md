@@ -30,7 +30,7 @@ pynq_live_admos:
 
 note: to set up pynq-z2 please refer to https://pynq.readthedocs.io/en/latest/getting_started/pynq_z2_setup.html
 
-huge thanks to:
+huge thanks to: 
 sioni summers (thesps)
 jules muhizi (julesmuhizi)
 
