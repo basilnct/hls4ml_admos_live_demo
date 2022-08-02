@@ -1,6 +1,6 @@
 hls4ml Live Demo:
 
-Anomaly Detection in Machine Operating Sounds (ADMOS) based on hls4ml ad08 submission
+Anomaly Detection in Machine Operating Sounds (ADMOS) based on hls4ml ad08 model in mlperf tiny v0.7 submission
 
 
 steps:
