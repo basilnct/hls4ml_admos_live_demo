@@ -1,6 +1,6 @@
 hls4ml Live Demo:
 
-Anomaly Detection in Machine Operating Sounds (ADMOS)
+Anomaly Detection in Machine Operating Sounds (ADMOS) based on hls4ml ad08 submission
 
 
 steps:
