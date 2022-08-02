@@ -27,9 +27,12 @@ pynq_live_admos:
 
 10. move live_inference.ipynb, axi_stream_driver.py, pynq_common.py, hwh and bit file to pynq z2
 11. run live_inference.ipynb on pynq z2
+
 note: to set up pynq-z2 please refer to https://pynq.readthedocs.io/en/latest/getting_started/pynq_z2_setup.html
 
+huge thanks to:
+sioni summers (thesps)
+jules muhizi (julesmuhizi)
 
 current issues:
 implementation fail in deployment.py
-other part seems to work fine
