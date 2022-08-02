@@ -25,8 +25,9 @@ vivado:
 
 pynq_live_admos:
 
-8. move live_inference.ipynb, axi_stream_driver.py, pynq_common.py, hwh and bit file to pynq z2
-9. run live_inference.ipynb
+10. move live_inference.ipynb, axi_stream_driver.py, pynq_common.py, hwh and bit file to pynq z2
+11. run live_inference.ipynb on pynq z2
+note: to set up pynq-z2 please refer to https://pynq.readthedocs.io/en/latest/getting_started/pynq_z2_setup.html
 
 
 current issues:
