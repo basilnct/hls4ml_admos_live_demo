@@ -22,66 +22,17 @@ import logging
 
 
 def get_model(name,inputDim,**kwargs):
-    if name=='keras_model':
-        return get_keras_model(inputDim,**kwargs)
-    elif name=='qkeras_model':
+    if name=='qkeras_model':
         return get_qkeras_model(inputDim,**kwargs)
     else:
         print('ERROR')
         return None
 
-########################################################################
-# keras model
-########################################################################
-def get_keras_model(inputDim,hiddenDim=128,latentDim=8, 
-                    encodeDepth=4, encodeIn=128, decodeDepth=4, 
-                    decodeOut=128, batchNorm=True, l1reg=0, **kwargs):
-    """
-    define the keras model
-    the model based on the simple dense auto encoder 
-    (128*128*128*128*8*128*128*128*128)
-    """
-    
-    # Declare encode network
-    inputLayer = Input(shape=(inputDim,))
-    kwargs = {'kernel_regularizer': l1(l1reg)}
-
-    for i in range(encodeDepth):
-        if i==0:
-            h = Dense(encodeIn,**kwargs)(inputLayer)
-        else:
-            h = Dense(hiddenDim,**kwargs)(h)
-        if batchNorm:
-            h = BatchNormalization()(h)
-        h = Activation('relu')(h)
-    
-    #Declare latent layer
-    if decodeDepth==0:
-        h = Dense(latentDim,**kwargs)(inputLayer)
-    else:
-        h = Dense(latentDim,**kwargs)(h)
-    if batchNorm:
-        h = BatchNormalization()(h)
-    h = Activation('relu')(h)
-
-    # Declare decoder network
-    for i in range(decodeDepth):
-        if i==decodeDepth-1:
-            h = Dense(decodeOut,**kwargs)(h)
-        else:
-            h = Dense(hiddenDim,**kwargs)(h)
-        if batchNorm:
-            h = BatchNormalization()(h)
-        h = Activation('relu')(h)
-
-    h = Dense(inputDim,**kwargs)(h)
-
-    return Model(inputs=inputLayer, outputs=h)
 
 ########################################################################
 # qkeras model
 ########################################################################
-def get_qkeras_model(inputDim,hiddenDim=64,latentDim=8,
+def get_qkeras_model(inputDim,hiddenDim=64,latentDim=4,
                     encodeDepth=4, encodeIn=64, decodeDepth=4,
                     decodeOut=64,bits=7,intBits=0,
                      reluBits=7,reluIntBits=3,lastBits=7,
