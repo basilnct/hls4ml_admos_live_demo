@@ -27,10 +27,11 @@ import hls4ml
 hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
 hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
 hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
+
 # for tuning and custom configs
-# HLS_CONFIG=convert_config['hls_config']
-# hls_config = yaml.safe_load(open(HLS_CONFIG))
-hls_config = hls4ml.utils.config_from_keras_model(model, granularity='name')
+HLS_CONFIG=convert_config['hls_config']
+hls_config = yaml.safe_load(open(HLS_CONFIG))
+
 
 print("-----------------------------------")
 plotting.print_dict(hls_config)
@@ -41,7 +42,6 @@ hls_model = hls4ml.converters.convert_from_keras_model(model,
                                                        backend=BACKEND,
                                                        board=BOARD_NAME)
 hls_model.compile()
-
 print(hls4ml.templates.get_supported_boards_dict().keys())
 plotting.print_dict(hls4ml.templates.get_backend('VivadoAccelerator').create_initial_config())
 
