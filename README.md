@@ -16,6 +16,12 @@ inference:
 
 5. python deployment.py -c ad08_pynq.yml to sythesize and profile hls4ml nn
 
+note: 
+
+if inference fails, likely LUT utilization too high. try rerunning the steps above 
+
+you can check the LUT util under vivado/myproject_prj/solution1/syn/report/myproject_csynth.rpt
+
 vivado:
 
 6. git clone https://github.com/Xilinx/PYNQ
