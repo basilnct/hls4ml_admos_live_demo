@@ -18,10 +18,10 @@ inference:
 
 vivado:
 
-6. git clone https://github.com/Xilinx/PYNQ and 
+6. git clone https://github.com/Xilinx/PYNQ
 7. mv audio_nn PYNQ/boards/Pynq-Z2
-8. cd PYNQ/boards/Pynq-Z2/audio_nn and run 
-9. vivado -mode batch -source project.tcl to sythesize and build bitfile with audio module (it will auto import ip from vivado)
+8. cd PYNQ/boards/Pynq-Z2/audio_nn
+9. vivado -mode batch -source project.tcl to sythesize and build bitfile with audio module (make sure vivado file is generated from deployment.py)
 
 pynq_live_admos:
 
@@ -33,8 +33,3 @@ note: to set up pynq-z2 please refer to https://pynq.readthedocs.io/en/latest/ge
 huge thanks to: 
 sioni summers (thesps)
 jules muhizi (julesmuhizi)
-
-current issues:
-implementation fail in deployment.py
-
-LUT utilization too high, resuse factor not correct
