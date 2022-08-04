@@ -5,7 +5,7 @@ _add_supported_quantized_objects(co)
 
 # load model
 import os
-os.environ['PATH']='/opt/Xilinx/Vivado/2020.1/bin:' + os.environ['PATH']
+os.environ['PATH']='/opt/Xilinx/Vivado/2020.2/bin:' + os.environ['PATH']
 model = load_model('model/model_ToyCar.h5', custom_objects=co)
 
 # loading config file
