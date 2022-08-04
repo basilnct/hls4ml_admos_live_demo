@@ -107,7 +107,7 @@ def file_load(wav_name, mono=False):
     """
     
     try:
-    	with wave.open(wav_path, 'r') as wav_file:
+    	with wave.open(wav_name, 'r') as wav_file:
     		raw_frames = wav_file.readframes(-1)
     		num_frames = wav_file.getnframes()
     		num_channels = wav_file.getnchannels()
