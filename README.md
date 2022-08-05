@@ -18,7 +18,7 @@ inference:
 
 note: 
 
-if inference fails, likely LUT utilization too high. try rerunning the steps above 
+if inference fails, possible that LUT utilization is too high. try rerunning the steps above 
 
 you can check the LUT util under vivado/myproject_prj/solution1/syn/report/myproject_csynth.rpt
 
